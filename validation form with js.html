@@ -1,0 +1,58 @@
+<!doctype>
+<html>
+	<head>
+		<style type="text/css">
+			.error{
+				color: red;
+				font-style: italic;
+				visibility:hidden;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<h1>faculty vacation request form</h1>
+		<form id="vacation" name="vacation>">
+			Employee ID*:<input type="text" name="EmId"/>
+			<span id="errid" class="error">This is required</span></br>
+			Faculty name*:<input type="text" name="fname" />
+			<span id="errname" class="error">This is required</span></br>
+			Gender*:<input type="radio" name="gender" value="male"/>male
+			        <input type="radio" name="gender" value="female"/>female
+			<span id="errgen" class="error">This is required</span></br>
+			Nationality:<input type="text" name="nation"/></br>
+			Position*:
+			<select name="position">
+				<option value="default"></option>
+				<option value="lec">lecturer</option>
+				<option value="asst">Assistant professor</option>
+				<option value="assoc">Associate Professor</option>
+				<option value="prof">Professor</option>
+			</select>
+            <span id="errpos" class="error">This is required</span></br>
+            <input type="button" value="Submit" onclick="validate();"/>
+		</form>
+	
+		<script type="text/javascript">
+			 function validate(){
+				  //get an element by its tag name which will store it in an array starting from array[0]
+				  var spans=document.getElementsByTagName("span");
+				  //get an element by its id
+				  var errid=document.getElementById("errid");
+				  var EmId=document.vacation.EmId;
+				  if(EmId.value === "")//we change here to errid
+				  {   //we want to change CSS using javascript
+					  //1. we use .setAttribute
+					  spans[0].setAttribute("style", "visibility:visible")//or if we use elements by tags we do: errid.setAttribute
+				  }
+				  var FacName=document.vacation.fname;
+				  if(FacName.value === "")
+				  {
+					  //2.we use styling
+					  spans[1].style.visibility ="visible";
+				  }
+			 }
+		</script>
+	</body>
+</html>
